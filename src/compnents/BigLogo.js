@@ -6,9 +6,11 @@ import {
     StyleSheet
 } from 'react-native'
 
+import { logo } from '../scripts/pictures'
+
 const Logo = () => (
     <View>
-        <Image style={styles.ımageContainer} source={{ uri: 'https://blogginballz.files.wordpress.com/2016/12/kid_goku_episode_1.jpg' }} />
+        <Image style={styles.ımageContainer} source={{ uri: logo }} />
     </View>
 )
 
