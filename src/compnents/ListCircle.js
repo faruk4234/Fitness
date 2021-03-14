@@ -9,15 +9,11 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const Foto = () => {
+const ListCircle = () => {
     const [click, setClick] = React.useState(false)
 
-    const Profilim = () => {
-        console.log('profilim')
-    }
-
-    const Ayarlar = () => {
-        console.log('ayarlar')
+    const Vıdeo = () => {
+        console.log('görsel ve vidolar')
     }
 
     return (
@@ -39,20 +35,10 @@ const Foto = () => {
 
                     <TouchableOpacity
                         style={styles.opacityBar}
-                        onPress={Profilim}>
+                        onPress={Vıdeo}>
 
                         <Text style={styles.textConteiner1}>
-                            Profilim
-                        </Text>
-
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={styles.opacityBar}
-                        onPress={Ayarlar}>
-
-                        <Text style={styles.textConteiner2}>
-                            Ayarlar
+                            görsel/Video
                         </Text>
 
                     </TouchableOpacity>
@@ -77,28 +63,27 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 24,
         position: 'absolute',
-        top: '70%',
+        top: '60%',
         left: '36%'
     },
     childContainer: {
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        width: '70%',
+        width: '88%',
         opacity: 0.89,
-        left: '15%',
-        top: '105%'
+        left: '6%',
+        top: '82%',
+        borderWidth: 1
     },
     textConteiner1: {
-        color: 'white',
-        borderBottomWidth: 0.6,
-        borderBottomColor: 'white'
-    },
-    textConteiner2: {
-        color: 'white'
+        paddingTop: 10,
+        paddingBottom: 10,
+        color: 'black',
+        fontSize: 11
     }
 })
 
-export default Foto
+export default ListCircle

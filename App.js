@@ -3,47 +3,91 @@ import React from 'react'
 import {
     Text,
     View,
+    Image,
     StyleSheet,
-    TouchableOpacity,
-    Image
+    TouchableOpacity
 } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-const InfoCard = () => (
-    <View style={styles.container}>
+const Foto = () => {
+    const [click, setClick] = React.useState(false)
 
-        <Image
-            style={styles.ımageContainer}
-            source={{ uri: 'https://i.pinimg.com/originals/59/2b/5a/592b5ad7a5581e405febdc4a2636d288.jpg' }} />
+    const Profilim = () => {
+        console.log('profilim')
+    }
 
-        <View style={styles.childContainer}>
-            <Text style={styles.textContainer}> Salon Adı / Eğitmen Adı</Text>
-            <Text style={styles.textContainer}> SALON / Eğitmen iletişim-Adress</Text>
-            <Text style={styles.textContainer}> Branş / TARİH-SAAT</Text>
+    const Ayarlar = () => {
+        console.log('ayarlar')
+    }
+
+    return (
+        <View style={styles.Container}>
+
+            <Image
+                style={styles.ımageContainer}
+                source={{ uri: 'https://blogginballz.files.wordpress.com/2016/12/kid_goku_episode_1.jpg' }} />
+
+            <Icon
+                style={styles.ıconContainer}
+                onPress={() => setClick(!click)}
+                name={click
+                    ? 'caret-down-outline'
+                    : 'caret-up-outline'} />
+
+            { click ? (
+                <View style={styles.childContainer}>
+
+                    <TouchableOpacity
+                        style={styles.opacityBar}
+                        onPress={Profilim}>
+
+                        <Text style={styles.textConteiner1}>
+                            görsel/Video
+                        </Text>
+
+                    </TouchableOpacity>
+
+                </View>
+            ) : null }
+
         </View>
-
-    </View>
-
-)
-
+    )
+}
 const styles = StyleSheet.create({
-    container: {
-        width: '80%',
-        flexDirection: 'row',
-        backgroundColor: 'black',
-        padding: 20,
-        borderRadius: 20
+    Container: {
+        width: '23%',
+        height: '13%'
     },
     ımageContainer: {
-        width: '25%',
+        width: '100%',
         height: '100%',
-        borderRadius: 20
+        borderRadius: 200
     },
-    textContainer: {
-        color: 'white'
+    ıconContainer: {
+        color: 'white',
+        fontSize: 24,
+        position: 'absolute',
+        top: '60%',
+        left: '36%'
     },
     childContainer: {
-        left: '10%'
+        backgroundColor: 'white',
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        width: '88%',
+        opacity: 0.89,
+        left: '6%',
+        top: '82%',
+        borderWidth: 1
+    },
+    textConteiner1: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        color: 'black',
+        fontSize: 11
     }
 })
 
-export default InfoCard
+export default Foto
