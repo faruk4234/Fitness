@@ -85,9 +85,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'absolute',
         width: '70%',
         opacity: 0.89,
-        left: '15%'
+        left: '15%',
+        top: '100%'
     },
     textConteiner1: {
         color: 'white',
