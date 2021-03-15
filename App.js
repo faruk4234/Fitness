@@ -1,9 +1,9 @@
 import React from 'react'
 
-import LoginScreen from './src/screens/loginscreen/LoginScreen'
+import Router from './src/screens/router/Router'
 
 const App = () => (
-    <LoginScreen />
+    <Router />
 )
 
 export default App
