@@ -23,6 +23,7 @@ const RegisterScreen = () => {
 
     return (
         <View style={styles.container}>
+
             <ScrollView>
                 <BackgroundImage />
 

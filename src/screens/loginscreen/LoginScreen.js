@@ -6,13 +6,17 @@ import {
     StyleSheet,
     Image,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 
 import BigLogo from '../../compnents/BigLogo'
 import { picture1 } from '../../scripts/pictures'
 
-const LoginScreen = () => {
+const { width, height } = Dimensions.get('window')
+
+const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState(null)
 
@@ -21,22 +25,22 @@ const LoginScreen = () => {
     }
 
     const forgotPassword = () => {
-        console.log('password forgot')
+        navigation.navigate('ForgotPassword')
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scroolContainer}>
             <Image
                 style={styles.ımageContainer}
                 source={{ uri: picture1 }} />
 
-            <View
-                style={styles.childContainer1}>
-
-                <BigLogo />
-            </View>
-
             <View style={styles.childContainer2}>
+
+                <View
+                    style={styles.childContainer1}>
+
+                    <BigLogo />
+                </View>
                 <Text style={styles.textContainer}> GİRİŞ YAP</Text>
 
                 <TextInput
@@ -76,33 +80,29 @@ const LoginScreen = () => {
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center'
-    },
     textContainer: {
         fontSize: 40,
         color: 'white',
         justifyContent: 'center'
     },
     ımageContainer: {
-        width: '100%',
-        height: '100%',
+        width,
+        height,
         position: 'absolute'
 
     },
     childContainer1: {
-        flex: 1,
         justifyContent: 'center',
-        left: '17.5%'
+        alignSelf: 'stretch',
+        alignItems: 'center'
     },
     input1: {
-        width: '90%',
+        width: width * 0.9,
         height: 42,
         margin: 12,
         borderWidth: 1,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         borderRadius: 15
     },
     input2: {
-        width: '90%',
+        width: width * 0.9,
         height: 42,
         margin: 12,
         borderWidth: 1,
@@ -127,12 +127,11 @@ const styles = StyleSheet.create({
     },
     childContainer2: {
         flex: 1,
-        position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '90%',
-        left: '4%',
-        bottom: '15%'
+        width: width * 0.9,
+        left: width * 0.04,
+        bottom: height * 0.10
     },
     loginContainer: {
         flexDirection: 'row'
@@ -147,7 +146,10 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     forgotPassword: {
-        right: '30%'
+        right: width * 0.04
+    },
+    scroolContainer: {
+        flex: 1
     }
 })
 

@@ -2,6 +2,7 @@ import React from 'react'
 
 import { createStackNavigator } from '@react-navigation/stack'
 
+import ForgotPassword from '../loginscreen/ForgotPassword'
 import LoginScreen from '../loginscreen/LoginScreen'
 import LogOrReg from '../loginscreen/LogOrReg'
 import RegisterScreen from '../loginscreen/RegisterScreen'
@@ -24,6 +25,11 @@ const LoginStack = () => (
         <Stack.Screen
             name='Register'
             component={RegisterScreen}
+            options={{ headerShown: false }} />
+
+        <Stack.Screen
+            name='ForgotPassword'
+            component={ForgotPassword}
             options={{ headerShown: false }} />
 
     </Stack.Navigator>

@@ -3,10 +3,13 @@ import React from 'react'
 import {
     View,
     Image,
-    StyleSheet
+    StyleSheet,
+    Dimensions
 } from 'react-native'
 
 import { logo } from '../scripts/pictures'
+
+const { width, height } = Dimensions.get('window')
 
 const Logo = () => (
     <View>
@@ -16,8 +19,8 @@ const Logo = () => (
 
 const styles = StyleSheet.create({
     ımageContainer: {
-        width: '65%',
-        height: '60%',
+        width: width * 0.65,
+        height: height * 0.35,
         borderRadius: 200
     }
 })

@@ -1,11 +1,14 @@
 import React from 'react'
 
 import {
-    Text, View, StyleSheet, Image, TouchableOpacity
+    Text, View, StyleSheet, Image, TouchableOpacity,
+    Dimensions
 } from 'react-native'
 
 import BigLogo from '../../compnents/BigLogo'
 import { picture1 } from '../../scripts/pictures'
+
+const { width, height } = Dimensions.get('window')
 
 const LogOrReg = ({ navigation }) => {
     const Login = () => {
@@ -47,25 +50,27 @@ const LogOrReg = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-
+        flex: 1,
+        display: 'flex'
     },
     ımageContainer: {
-        width: '100%',
-        height: '100%',
+        width,
+        height,
         position: 'absolute'
 
     },
     childContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        left: '17.5%'
+        flex: 2,
+        justifyContent: 'flex-end',
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        marginBottom: 50
     },
     bigTextContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
-        bottom: '70%'
+        alignItems: 'flex-start',
+        flex: 1
     },
     textcontainer: {
         color: 'white',
