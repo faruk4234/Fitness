@@ -12,7 +12,7 @@ import RegisterScreen from '../loginscreen/RegisterScreen'
 const Stack = createStackNavigator()
 
 const LoginStack = () => (
-    <Stack.Navigator initialRouteName='NewPassword'>
+    <Stack.Navigator>
 
         <Stack.Screen
             name='LogOrReg'

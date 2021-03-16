@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = React.useState(null)
 
     const login = () => {
-        console.log('login')
+        navigation.replace('BottomTab')
     }
 
     const forgotPassword = () => {
