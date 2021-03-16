@@ -6,7 +6,6 @@ import {
     StyleSheet,
     ScrollView,
     TextInput,
-    TouchableOpacity,
     Dimensions
 } from 'react-native'
 
@@ -15,11 +14,11 @@ import BigLogo from '../../compnents/BigLogo'
 
 const { width, height } = Dimensions.get('window')
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
     const [email, setEmail] = React.useState('')
 
     const SendCode = () => {
-        navigation.navigate('CheckCode')
+        console.log('sendCode')
     }
 
     return (
@@ -37,23 +36,13 @@ const LoginScreen = ({ navigation }) => {
 
                 <TextInput
                     style={styles.input1}
+                    keyboardType='numeric'
                     onChangeText={setEmail}
                     value={email}
-                    placeholder='email' />
+                    placeholder='CODE' />
 
                 <View
-                    style={styles.loginContainer}>
-
-                    <TouchableOpacity
-                        onPress={SendCode}
-                        style={styles.buttonContainer}>
-                        <Text style={styles.loginButton}>
-                            DOGRULAMA KODU GÖNDER
-                            {' '}
-
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+                    style={styles.loginContainer} />
             </View>
         </ScrollView>
     )
@@ -77,7 +66,7 @@ const styles = StyleSheet.create({
         bottom: height * 0.12
     },
     input1: {
-        width: width * 0.9,
+        width: width * 0.6,
         height: 42,
         margin: 12,
         borderWidth: 1,
@@ -95,16 +84,6 @@ const styles = StyleSheet.create({
     },
     loginContainer: {
         flexDirection: 'row'
-    },
-    buttonContainer: {
-        borderRadius: 8,
-        height: 40,
-        backgroundColor: 'aqua',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    loginButton: {
-        fontSize: 20
     }
 })
 
