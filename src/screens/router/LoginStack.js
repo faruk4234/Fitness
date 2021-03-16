@@ -6,12 +6,13 @@ import CheckCode from '../loginscreen/CheckCode'
 import ForgotPassword from '../loginscreen/ForgotPassword'
 import LoginScreen from '../loginscreen/LoginScreen'
 import LogOrReg from '../loginscreen/LogOrReg'
+import NewPasswordScreen from '../loginscreen/NewPasswordScreen'
 import RegisterScreen from '../loginscreen/RegisterScreen'
 
 const Stack = createStackNavigator()
 
 const LoginStack = () => (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='NewPassword'>
 
         <Stack.Screen
             name='LogOrReg'
@@ -36,6 +37,11 @@ const LoginStack = () => (
         <Stack.Screen
             name='CheckCode'
             component={CheckCode}
+            options={{ headerShown: false }} />
+
+        <Stack.Screen
+            name='NewPassword'
+            component={NewPasswordScreen}
             options={{ headerShown: false }} />
 
     </Stack.Navigator>

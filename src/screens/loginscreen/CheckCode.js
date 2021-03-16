@@ -17,10 +17,6 @@ const { width, height } = Dimensions.get('window')
 const LoginScreen = () => {
     const [email, setEmail] = React.useState('')
 
-    const SendCode = () => {
-        console.log('sendCode')
-    }
-
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <BackgroundColor />
@@ -37,6 +33,7 @@ const LoginScreen = () => {
                 <TextInput
                     style={styles.input1}
                     keyboardType='numeric'
+                    maxLength={6}
                     onChangeText={setEmail}
                     value={email}
                     placeholder='CODE' />
