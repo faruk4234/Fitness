@@ -4,21 +4,25 @@ import {
     Text,
     View,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
 
-const Boxes = ({ props }) => {
+const { width, height } = Dimensions.get('window')
+
+const Boxes = ({ item }) => {
     const boxButton = () => {
-        console.log('boxbutton')
+        console.log(item.title)
     }
 
     return (
 
-        <View
-            style={styles.container}>
-            <TouchableOpacity onPress={boxButton}>
+        <View style={styles.viewContainer}>
+            <TouchableOpacity
+                style={styles.container}
+                onPress={boxButton}>
                 <Text style={styles.textContainer}>
-                    {props.names}
+                    {item.title}
                 </Text>
             </TouchableOpacity>
         </View>
@@ -27,16 +31,19 @@ const Boxes = ({ props }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: '23%',
-        height: '13%',
+        width: width * 0.23,
+        height: height * 0.13,
         backgroundColor: 'black',
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center'
-
+    },
+    viewContainer: {
+        paddingTop: 20
     },
     textContainer: {
-        color: 'white'
+        color: 'white',
+        fontSize: 25
     }
 })
 
