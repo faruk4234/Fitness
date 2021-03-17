@@ -1,10 +1,9 @@
 import React from 'react'
 
 import {
-    Text, View, StyleSheet, TextInput,
-    Dimensions, ScrollView
+    Text, View, StyleSheet, TextInput, TouchableOpacity, ScrollView,
+    Dimensions
 } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import BackgroundImage from '../../compnents/BackgroundImage'
 import SalonLogo from '../../compnents/SalonLogo'
@@ -22,9 +21,8 @@ const RegisterScreen = () => {
     const [taxNumber, setTaxNumber] = React.useState('')
 
     return (
-        <View style={styles.container}>
-
-            <ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
+            <View style={styles.kidContainer}>
                 <BackgroundImage />
 
                 <View style={styles.childContainer}>
@@ -91,8 +89,8 @@ const RegisterScreen = () => {
                     </TouchableOpacity>
 
                 </View>
-            </ScrollView>
-        </View>
+            </View>
+        </ScrollView>
     )
 }
 
@@ -101,6 +99,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    kidContainer: {
+        flex: 1,
+        alignSelf: 'stretch'
     },
     childContainer: {
         left: width * 0.335,
