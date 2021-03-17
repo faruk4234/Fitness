@@ -5,9 +5,12 @@ import {
     View,
     Image,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+
+const { width, height } = Dimensions.get('window')
 
 const Foto = () => {
     const [click, setClick] = React.useState(false)
@@ -65,20 +68,20 @@ const Foto = () => {
 }
 const styles = StyleSheet.create({
     Container: {
-        width: '23%',
-        height: '13%'
+        width: width * 0.25,
+        height: height * 0.13
     },
     ımageContainer: {
-        width: '100%',
-        height: '100%',
+        width: width * 0.25,
+        height: height * 0.13,
         borderRadius: 200
     },
     ıconContainer: {
         color: 'white',
         fontSize: 24,
         position: 'absolute',
-        top: '70%',
-        left: '36%'
+        top: height * 0.09,
+        left: width * 0.09
     },
     childContainer: {
         backgroundColor: 'black',
@@ -86,10 +89,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        width: '70%',
+        width: width * 0.18,
         opacity: 0.89,
-        left: '15%',
-        top: '105%'
+        left: width * 0.04,
+        top: height * 0.15
     },
     textConteiner1: {
         color: 'white',

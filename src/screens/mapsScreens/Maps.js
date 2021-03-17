@@ -1,31 +1,29 @@
 import React from 'react'
 
-import { View, Dimensions, StyleSheet } from 'react-native'
-import MapView from 'react-native-maps'
+import { StyleSheet } from 'react-native'
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
-const Maps = () => (
-    <View style={styles.container}>
+const Maps = () => {
+    const coordDolmabahce = {
+        latitude: 41.0391683,
+        longitude: 28.9982707,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01
+    }
+
+    return (
         <MapView
-            style={styles.map}
-            initialRegion={{
-                latitude: 37.78825,
-                longitude: -122.4324,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-            }} />
-    </View>
-)
+            provider={PROVIDER_GOOGLE}
+            style={styles.mapsContainer}
+            initialRegion={coordDolmabahce}>
+            <Marker coordinate={coordDolmabahce} />
+        </MapView>
+    )
+}
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    map: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height
+    mapsContainer: {
+        flex: 1
     }
 })
 
