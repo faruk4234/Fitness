@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const ListCircle = () => {
+const ListCircle = ({ item }) => {
     const [click, setClick] = React.useState(false)
 
     const Vıdeo = () => {
@@ -18,7 +18,9 @@ const ListCircle = () => {
 
     return (
         <View style={styles.Container}>
-
+            <Text>
+                {' '}
+            </Text>
             <Image
                 style={styles.ımageContainer}
                 source={{ uri: 'https://blogginballz.files.wordpress.com/2016/12/kid_goku_episode_1.jpg' }} />

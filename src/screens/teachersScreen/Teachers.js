@@ -5,8 +5,8 @@ import {
 } from 'react-native'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
-import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
+import ListCircle from '../../compnents/ListCircle'
 import SearcBar from '../../compnents/SearchBar'
 
 const MainPage = () => {
@@ -46,7 +46,6 @@ const MainPage = () => {
             id: '9',
             title: 'nine'
         }
-
     ]
 
     return (
@@ -67,9 +66,9 @@ const MainPage = () => {
                         <SafeAreaView style={styles.container}>
                             <FlatList
                                 contentContainerStyle={styles.flatContainer}
-                                numColumns={2}
+                                numColumns={3}
                                 data={Data}
-                                renderItem={Boxes}
+                                renderItem={ListCircle}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

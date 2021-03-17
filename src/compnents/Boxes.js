@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         borderRadius: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginHorizontal: '10%',
+        left: '10%'
     },
     viewContainer: {
         paddingTop: 20
