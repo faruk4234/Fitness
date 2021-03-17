@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width,
-        height
+        height,
+        position: 'absolute'
     },
     ımageContainer: {
         width,

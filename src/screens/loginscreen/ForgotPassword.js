@@ -73,8 +73,7 @@ const styles = StyleSheet.create({
     childContainer1: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        bottom: height * 0.12
+        alignItems: 'center'
     },
     input1: {
         width: width * 0.9,
