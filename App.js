@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Router from './src/screens/router/Router'
+import Axios from './src/scripts/Axioss'
 
 const App = () => (
-    <Router />
+    <Axios />
 )
 
 export default App
