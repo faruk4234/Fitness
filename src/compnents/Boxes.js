@@ -12,7 +12,6 @@ const { width, height } = Dimensions.get('window')
 
 const Boxes = ({ item }) => {
     const boxButton = () => {
-        console.log(item.title)
     }
 
     return (

@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window')
 
 const NewListCircle = ({ navigation }) => {
     const salon = () => {
-        navigation.navigate('teFoto')
+        navigation.navigate('teFotos')
     }
 
     return (

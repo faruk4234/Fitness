@@ -9,7 +9,7 @@ import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
 import SearcBar from '../../compnents/SearchBar'
 
-const MainPage = () => {
+const MainPage = ({ navigation }) => {
     const Data = [
         {
             id: '1',
@@ -70,6 +70,7 @@ const MainPage = () => {
                                 numColumns={2}
                                 data={Data}
                                 renderItem={Boxes}
+                                navigation={navigation}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

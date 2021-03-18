@@ -39,7 +39,7 @@ const index = () => (
             options={{ headerShown: false }} />
 
         <Stack.Screen
-            name='teFoto'
+            name='teFotos'
             component={TeacherFotoScreen}
             options={{ headerShown: false }} />
 
