@@ -16,6 +16,10 @@ const AboutSaloon = ({ navigation }) => {
         navigation.navigate('salonTeachers')
     }
 
+    const Activity = () => {
+        navigation.navigate('Activty')
+    }
+
     return (
         <View style={styles.container}>
             <BackgroundImage />
@@ -25,6 +29,12 @@ const AboutSaloon = ({ navigation }) => {
                 onPress={Kapacity}
                 style={styles.opacityContainer}>
                 <Text style={styles.textContainer2}>KAPASİTESİ</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={Activity}
+                style={styles.opacityContainer}>
+                <Text style={styles.textContainer2}>Aktivitiler</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

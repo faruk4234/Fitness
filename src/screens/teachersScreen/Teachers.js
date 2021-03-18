@@ -6,9 +6,9 @@ import {
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
-import NewListCircle from '../../compnents/NewListCircle'
+import NewListCircle from '../../compnents/SaloonComponent'
 
-const MainPage = () => {
+const MainPage = ({ navigation }) => {
     const Data = [
         {
             id: '1',
@@ -68,7 +68,7 @@ const MainPage = () => {
                                 numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
                                 data={Data}
-                                renderItem={() => <NewListCircle />}
+                                renderItem={() => <NewListCircle navigation={navigation} />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

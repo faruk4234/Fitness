@@ -9,12 +9,11 @@ import { logo } from '../scripts/pictures'
 
 const { width, height } = Dimensions.get('window')
 
-const NewListCircle = () => {
-    console.log('TRY')
+const NewListCircle = ({ navigation }) => {
     const [click, setClick] = React.useState(false)
 
     const video = () => {
-        console.log('video')
+        navigation.navigate('teFotos')
     }
 
     return (
