@@ -12,7 +12,7 @@ import TeacherFotoScreen from './TeacherFoto'
 const Stack = createStackNavigator()
 
 const index = () => (
-    <Stack.Navigator initialRouteName='Abaout'>
+    <Stack.Navigator initialRouteName='saloons'>
         <Stack.Screen
             name='saloons'
             component={SaloonScreen}

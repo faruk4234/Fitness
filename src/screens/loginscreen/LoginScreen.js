@@ -1,5 +1,6 @@
 import React from 'react'
 
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
     Text,
     View,
@@ -9,9 +10,11 @@ import {
     TouchableOpacity,
     Dimensions
 } from 'react-native'
+import axios from 'react-native-axios'
 import { ScrollView } from 'react-native-gesture-handler'
 
 import BigLogo from '../../compnents/BigLogo'
+import { Token } from '../../scripts/axios'
 import { picture1 } from '../../scripts/pictures'
 
 const { width, height } = Dimensions.get('window')
@@ -21,7 +24,19 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = React.useState(null)
 
     const login = () => {
-        navigation.replace('BottomTab')
+        axios.post('https://traidors.com/api/login', {
+            email,
+            password
+        })
+            .then((response) => {
+                AsyncStorage.setItem('@storage_Key', response)
+                navigation.replace('BottomTab')
+                Token = response
+                console.log(response)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     const forgotPassword = () => {

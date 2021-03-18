@@ -17,6 +17,8 @@ target 'Fitness' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'FitnessTests' do
     inherit! :complete
     # Pods for testing
