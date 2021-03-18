@@ -5,7 +5,6 @@ import { BottomNavigation, Text } from 'react-native-paper'
 import MainPage from '../../mainPage/MainPage'
 import Maps from '../../mapsScreens/Maps'
 import Saloon from '../../SaloonScreen'
-import Activity from '../../SaloonScreen/ActivityScreen'
 import Teachers from '../../teachersScreen/Teachers'
 
 const Hakında = () => <Text>hakında</Text>

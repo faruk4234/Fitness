@@ -4,8 +4,11 @@ import {
     Text,
     View,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
+
+const { width, height } = Dimensions.get('window')
 
 const PriceCirlcle = () => {
     const PrirceButton = () => {
@@ -35,8 +38,8 @@ const PriceCirlcle = () => {
 
 const styles = StyleSheet.create({
     Container: {
-        width: '23%',
-        height: '13%',
+        width: width * 0.23,
+        height: height * 0.12,
         backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',

@@ -9,9 +9,9 @@ import { logo } from '../scripts/pictures'
 
 const { width } = Dimensions.get('window')
 
-const NewListCircle = () => {
+const NewListCircle = ({ navigation }) => {
     const salon = () => {
-        console.log('video')
+        navigation.navigate('Activty')
     }
 
     return (
