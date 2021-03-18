@@ -21,8 +21,8 @@ const RegisterScreen = () => {
     const [taxNumber, setTaxNumber] = React.useState('')
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <View style={styles.kidContainer}>
+        <View style={styles.kidContainer}>
+            <ScrollView contentContainerStyle={styles.container}>
                 <BackgroundImage />
 
                 <View style={styles.childContainer}>
@@ -89,16 +89,14 @@ const RegisterScreen = () => {
                     </TouchableOpacity>
 
                 </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 1
     },
     kidContainer: {
         flex: 1,

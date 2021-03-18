@@ -5,9 +5,9 @@ import {
 } from 'react-native'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
+import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
 import ListCircle from '../../compnents/ListCircle'
-import SearcBar from '../../compnents/SearchBar'
 
 const MainPage = () => {
     const Data = [
@@ -56,19 +56,14 @@ const MainPage = () => {
                 <Foto />
             </View>
 
-            <View style={styles.searchContainer}>
-                <SearcBar />
-            </View>
-
             <View style={styles.childContainer2}>
                 <ScrollView style={styles.scroolContainer}>
                     <View>
                         <SafeAreaView style={styles.container}>
                             <FlatList
                                 contentContainerStyle={styles.flatContainer}
-                                numColumns={3}
                                 data={Data}
-                                renderItem={ListCircle}
+                                renderItem={Boxes}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

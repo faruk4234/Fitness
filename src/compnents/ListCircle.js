@@ -5,9 +5,12 @@ import {
     View,
     Image,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+
+const { width, height } = Dimensions.get('window')
 
 const ListCircle = ({ item }) => {
     const [click, setClick] = React.useState(false)
@@ -53,19 +56,19 @@ const ListCircle = ({ item }) => {
 }
 const styles = StyleSheet.create({
     Container: {
-        width: '23%',
-        height: '13%'
+        width: width * 0.22,
+        height: height * 0.12
     },
     ımageContainer: {
-        width: '100%',
-        height: '100%',
+        width: width * 0.22,
+        height: height * 0.12,
         borderRadius: 200
     },
     ıconContainer: {
         color: 'white',
         fontSize: 24,
         position: 'absolute',
-        top: '60%',
+        top: height * 0.10,
         left: '36%'
     },
     childContainer: {
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
         width: '88%',
         opacity: 0.89,
         left: '6%',
-        top: '82%',
+        top: '110%',
         borderWidth: 1
     },
     textConteiner1: {
