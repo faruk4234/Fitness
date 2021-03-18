@@ -4,7 +4,8 @@ import { BottomNavigation, Text } from 'react-native-paper'
 
 import MainPage from '../../mainPage/MainPage'
 import Maps from '../../mapsScreens/Maps'
-import SaloonScreen from '../../SaloonScreen/SaloonScreen'
+import Saloon from '../../SaloonScreen'
+import Activity from '../../SaloonScreen/ActivityScreen'
 import Teachers from '../../teachersScreen/Teachers'
 
 const Hakında = () => <Text>hakında</Text>
@@ -17,16 +18,13 @@ const MyComponent = () => {
             key: 'Maps', title: 'Maps', icon: 'map', color: '#3F51B5'
         },
         {
-            key: 'Saloons', title: 'Saloons', icon: 'map', color: '#009688'
+            key: 'Saloon', title: 'Saloons', icon: 'map', color: '#009688'
         },
         {
             key: 'Teachers', title: 'Eğitmenler', icon: 'map', color: '#795548'
         },
         {
-            key: 'MainPage', title: 'AnaSayfa', icon: 'map', color: '#607D8B'
-        },
-        {
-            key: 'Hakında', title: 'Hakında', icon: 'map', color: 'aqua'
+            key: 'MainPage', title: 'AnaSayfa', icon: 'map', color: 'aqua'
         },
         {
             key: 'Çıkış', title: 'Çıkış', icon: 'map', color: 'green'
@@ -35,7 +33,7 @@ const MyComponent = () => {
 
     const renderScene = BottomNavigation.SceneMap({
         Maps,
-        Saloons: SaloonScreen,
+        Saloon,
         Teachers,
         MainPage,
         Hakında,

@@ -6,7 +6,7 @@ import {
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
-import SalonComponent from '../../compnents/SaloonComponent'
+import NewListCircle from '../../compnents/NewListCircle'
 
 const MainPage = () => {
     const Data = [
@@ -56,7 +56,8 @@ const MainPage = () => {
             </View>
 
             <View style={styles.textViewContainer}>
-                <Text style={styles.textcontainer2}>TÜM SALONLAR </Text>
+                <Text style={styles.textcontainer2}>XXX SALONU </Text>
+                <Text style={styles.textcontainer2}>Aktiviteleri</Text>
             </View>
 
             <View style={styles.childContainer2}>
@@ -67,7 +68,7 @@ const MainPage = () => {
                                 numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
                                 data={Data}
-                                renderItem={() => <SalonComponent />}
+                                renderItem={() => <NewListCircle />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

@@ -4,7 +4,7 @@ import NewListCircle from './src/compnents/NewListCircle'
 import Router from './src/screens/router/Router'
 
 const App = () => (
-    <NewListCircle />
+    <Router />
 )
 
 export default App

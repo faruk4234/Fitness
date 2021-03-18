@@ -5,9 +5,8 @@ import {
 } from 'react-native'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
-import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
-import ListCircle from '../../compnents/ListCircle'
+import NewListCircle from '../../compnents/NewListCircle'
 
 const MainPage = () => {
     const Data = [
@@ -56,14 +55,20 @@ const MainPage = () => {
                 <Foto />
             </View>
 
+            <View style={styles.textViewContainer}>
+                <Text style={styles.textcontainer2}>XXX SALONU </Text>
+                <Text style={styles.textcontainer2}>Eğitmenleri</Text>
+            </View>
+
             <View style={styles.childContainer2}>
                 <ScrollView style={styles.scroolContainer}>
                     <View>
                         <SafeAreaView style={styles.container}>
                             <FlatList
+                                numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
                                 data={Data}
-                                renderItem={Boxes}
+                                renderItem={() => <NewListCircle />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>
@@ -91,18 +96,26 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: 'white'
     },
+    textcontainer2: {
+        fontSize: 25,
+        color: 'white'
+
+    },
     childContainer2: {
         flex: 4,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    searchContainer: {
-        marginHorizontal: '6%'
-    },
     flatContainer: {
         paddingVertical: 20
     },
     scroolContainer: {
+    },
+    textViewContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'stretch'
     }
 })
 

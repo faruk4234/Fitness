@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import {
     View, TouchableOpacity, StyleSheet, Text, Dimensions
@@ -10,6 +10,7 @@ import { logo } from '../scripts/pictures'
 const { width, height } = Dimensions.get('window')
 
 const NewListCircle = () => {
+    console.log('TRY')
     const [click, setClick] = React.useState(false)
 
     const video = () => {
@@ -44,7 +45,9 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: width * 0.25
+        width: width * 0.25,
+        padding: 15,
+        marginHorizontal: 10
     },
     childContainer: {
         backgroundColor: 'white',
@@ -52,9 +55,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        width: '88%',
+        width: '100%',
         opacity: 0.89,
-        left: '6%',
+        left: width * 0.03,
         top: height * 0.12,
         borderWidth: 1
     },
@@ -65,4 +68,5 @@ const styles = StyleSheet.create({
         fontSize: 11
     }
 })
+
 export default NewListCircle
