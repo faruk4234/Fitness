@@ -28,7 +28,7 @@ const MainPage = ({ navigation, route }) => (
                         <FlatList
                             numColumns={3}
                             contentContainerStyle={styles.flatContainer}
-                            data={route.params}
+                            data={route.params.item}
                             renderItem={(item) => <SalonTeacherFoto navigation={navigation} item={item} />}
                             keyExtractor={(item) => item.id} />
                     </SafeAreaView>

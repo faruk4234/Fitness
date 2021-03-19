@@ -8,17 +8,15 @@ import { Avatar } from 'react-native-paper'
 const { width } = Dimensions.get('window')
 
 const NewListCircle = ({ navigation, item }) => {
+    console.log(item)
     const salon = () => {
-        console.log(item)
         //  navigation.navigate('teFotos', item)
     }
 
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => salon()}>
-                <View style={{
-                    width: 200, height: 200, flex: 1, backgroundColor: 'red'
-                }} />
+                <Avatar.Image size={100} source={{ uri: item.image }} />
             </TouchableOpacity>
         </View>
     )
