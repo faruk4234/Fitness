@@ -3,51 +3,33 @@ import React from 'react'
 import {
     View, StyleSheet, Text, ScrollView, SafeAreaView, FlatList
 } from 'react-native'
+import axios from 'react-native-axios'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
 import SearcBar from '../../compnents/SearchBar'
+import { getToken } from '../../scripts/axios'
 
 const MainPage = ({ navigation }) => {
-    const Data = [
-        {
-            id: '1',
-            title: 'First Item'
-        },
-        {
-            id: '2',
-            title: 'second'
-        },
-        {
-            id: '3',
-            title: 'four'
-        },
-        {
-            id: '4',
-            title: 'five'
-        },
-        {
-            id: '5',
-            title: 'six'
-        },
-        {
-            id: '6',
-            title: 'third'
-        },
-        {
-            id: '7',
-            title: 'seven'
-        },
-        {
-            id: '8',
-            title: 'egght'
-        }, {
-            id: '9',
-            title: 'nine'
-        }
+    const getData = async () => (
+        axios.get('https://traidors.com/api/branch/read', {
+            headers: {
+                Authorization: `Bearer ${await getToken()}`
+            }
+        })
+            .then((response) => (response.data))
+            .catch((e) => {
+                console.log('e', e)
+            })
+    )
+    const [data, setData] = React.useState(null)
 
-    ]
+    React.useEffect(() => {
+        getData().then((value) => {
+            setData(value)
+        })
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -68,7 +50,7 @@ const MainPage = ({ navigation }) => {
                             <FlatList
                                 contentContainerStyle={styles.flatContainer}
                                 numColumns={2}
-                                data={Data}
+                                data={data}
                                 renderItem={Boxes}
                                 navigation={navigation}
                                 keyExtractor={(item) => item.id} />

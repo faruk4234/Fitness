@@ -8,46 +8,44 @@ import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import PriceCircle from '../../compnents/PriceCircle'
 
-const Kapacity = () => {
-    const x = () => {
-
-    }
-
-    return (
-        <View style={styles.container}>
-            <BackgroundColor />
-            <View style={styles.childContainer}>
-                <Text style={styles.textContainer}> Merhaba xxx</Text>
-                <Foto />
-            </View>
-
-            <Text style={styles.textContainer2}>XXX SALONU</Text>
-            <View style={styles.childContainer2}>
-
-                <View style={styles.groundChildContainer}>
-                    <Text style={styles.textContainer}>
-                        HAKKINDA
-                    </Text>
-                </View>
-
-                <View style={styles.childContainer3}>
-                    <PriceCircle />
-                    <PriceCircle />
-                    <PriceCircle />
-                </View>
-
-                <View style={styles.groundChildContainer}>
-                    <Text style={styles.textContainer}>
-                        Vergi No İban
-                    </Text>
-                </View>
-                <View />
-            </View>
-
+const Kapacity = ({ route }) => (
+    <View style={styles.container}>
+        <BackgroundColor />
+        <View style={styles.childContainer}>
+            <Text style={styles.textContainer}> Merhaba xxx</Text>
+            <Foto />
         </View>
 
-    )
-}
+        <Text style={styles.textContainer2}>
+            {route.params.name}
+            {' '}
+            SALONU
+        </Text>
+        <View style={styles.childContainer2}>
+
+            <View style={styles.groundChildContainer}>
+                <Text style={styles.textContainer}>
+                    {route.params.about}
+                </Text>
+            </View>
+
+            <View style={styles.childContainer3}>
+                <PriceCircle price={route.params.price} />
+                <PriceCircle price={route.params.price} />
+                <PriceCircle price={route.params.price} />
+            </View>
+
+            <View style={styles.groundChildContainer}>
+                <Text style={styles.textContainer}>
+                    {route.params.iban_no}
+                </Text>
+            </View>
+            <View />
+        </View>
+
+    </View>
+
+)
 
 const styles = StyleSheet.create({
     container: {

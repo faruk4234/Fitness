@@ -6,80 +6,40 @@ import {
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
-import NewListCircle from '../../compnents/SaloonComponent'
+import SalonTeacherFoto from '../../compnents/SalonTeachersFoto'
 
-const MainPage = ({ navigation }) => {
-    const Data = [
-        {
-            id: '1',
-            title: 'First Item'
-        },
-        {
-            id: '2',
-            title: 'second'
-        },
-        {
-            id: '3',
-            title: 'four'
-        },
-        {
-            id: '4',
-            title: 'five'
-        },
-        {
-            id: '5',
-            title: 'six'
-        },
-        {
-            id: '6',
-            title: 'third'
-        },
-        {
-            id: '7',
-            title: 'seven'
-        },
-        {
-            id: '8',
-            title: 'egght'
-        }, {
-            id: '9',
-            title: 'nine'
-        }
-    ]
-
-    return (
-        <View style={styles.container}>
-            <BackgroundColor />
-            <View style={styles.childContainer}>
-                <Text style={styles.textContainer}> Merhaba xxx</Text>
-                <Foto />
-            </View>
-
-            <View style={styles.textViewContainer}>
-                <Text style={styles.textcontainer2}>Eğitmen  </Text>
-                <Text style={styles.textcontainer2}>FOTOLAR</Text>
-            </View>
-
-            <View style={styles.childContainer2}>
-                <ScrollView style={styles.scroolContainer}>
-                    <View>
-                        <SafeAreaView style={styles.container}>
-                            <FlatList
-                                numColumns={3}
-                                contentContainerStyle={styles.flatContainer}
-                                data={Data}
-                                renderItem={() => <NewListCircle navigation={navigation} />}
-                                keyExtractor={(item) => item.id} />
-                        </SafeAreaView>
-                    </View>
-                    <View />
-                </ScrollView>
-            </View>
-
+const MainPage = ({ navigation, item }) => (
+    <View style={styles.container}>
+        <BackgroundColor />
+        <View style={styles.childContainer}>
+            <Text style={styles.textContainer}> Merhaba xxx</Text>
+            <Foto />
         </View>
 
-    )
-}
+        <View style={styles.textViewContainer}>
+            <Text style={styles.textcontainer2}>Eğitmen  </Text>
+            <Text style={styles.textcontainer2}>FOTOLAR</Text>
+        </View>
+
+        <View style={styles.childContainer2}>
+            <ScrollView style={styles.scroolContainer}>
+                <View>
+                    <SafeAreaView style={styles.container}>
+                        <FlatList
+                            numColumns={3}
+                            contentContainerStyle={styles.flatContainer}
+                            data={item}
+                            renderItem={(item) => <SalonTeacherFoto navigation={navigation} item={item} />}
+                            keyExtractor={(item) => item.id} />
+                    </SafeAreaView>
+                </View>
+                <View />
+            </ScrollView>
+        </View>
+
+    </View>
+
+)
 
 const styles = StyleSheet.create({
     container: {

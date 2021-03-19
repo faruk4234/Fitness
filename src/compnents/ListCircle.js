@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 const { width, height } = Dimensions.get('window')
 
-const ListCircle = ({ item }) => {
+const ListCircle = () => {
     const [click, setClick] = React.useState(false)
 
     const Vıdeo = () => {

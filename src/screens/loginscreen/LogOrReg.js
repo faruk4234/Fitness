@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 
 import BigLogo from '../../compnents/BigLogo'
+import { getToken } from '../../scripts/axios'
 import { picture1 } from '../../scripts/pictures'
 
 const { width, height } = Dimensions.get('window')
@@ -17,6 +18,15 @@ const LogOrReg = ({ navigation }) => {
     const Register = () => {
         navigation.navigate('Register')
     }
+
+    React.useEffect(() => {
+        getToken().then((value) => {
+            console.log(value, 'h')
+            if (value) {
+                navigation.replace('BottomTab')
+            }
+        })
+    }, [])
 
     return (
         <View

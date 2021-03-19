@@ -8,13 +8,27 @@ import axios from 'react-native-axios'
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import SalonComponent from '../../compnents/SaloonComponent'
-import { instance } from '../../scripts/axios'
+import { getToken } from '../../scripts/axios'
 
 const MainPage = ({ navigation }) => {
-    const Data = instance.get('/lounge/read')
-        .then((response) => {
-            console.log(response)
+    const getData = async () => (
+        axios.get('https://traidors.com/api/lounge/read', {
+            headers: {
+                Authorization: `Bearer ${await getToken()}`
+            }
         })
+            .then((response) => (response.data))
+            .catch((e) => {
+                console.log('e', e)
+            })
+    )
+    const [data, setData] = React.useState(null)
+
+    React.useEffect(() => {
+        getData().then((value) => {
+            setData(value)
+        })
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -35,8 +49,8 @@ const MainPage = ({ navigation }) => {
                             <FlatList
                                 numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
-                                data={Data}
-                                renderItem={() => <SalonComponent navigation={navigation} />}
+                                data={data}
+                                renderItem={(item) => <SalonComponent data={item} navigation={navigation} />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

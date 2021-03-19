@@ -7,13 +7,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import BackgroundImage from '../../compnents/BackgroundImage'
 
-const AboutSaloon = ({ navigation }) => {
+const AboutSaloon = ({ navigation, route }) => {
+    const { item } = route.params.data
     const Kapacity = () => {
-        navigation.navigate('kapacity')
+        navigation.navigate('kapacity', item)
     }
 
     const teachers = () => {
-        navigation.navigate('salonTeachers')
+        navigation.navigate('salonTeachers', item)
     }
 
     const Activity = () => {
@@ -23,7 +24,11 @@ const AboutSaloon = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <BackgroundImage />
-            <Text style={styles.textContainer}>XXXX SALONU</Text>
+            <Text style={styles.textContainer}>
+                {item.name}
+                {' '}
+                SALONU
+            </Text>
 
             <TouchableOpacity
                 onPress={Kapacity}
@@ -45,12 +50,12 @@ const AboutSaloon = ({ navigation }) => {
 
             <TouchableOpacity
                 style={styles.opacityContainer}>
-                <Text style={styles.textContainer2}>ÇALIŞMA SAATLERİ</Text>
+                <Text style={styles.textContainer2}>{item.work_time}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
                 style={styles.opacityContainer}>
-                <Text style={styles.textContainer2}>İletişim NO</Text>
+                <Text style={styles.textContainer2}>{item.contact}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity

@@ -14,7 +14,6 @@ import axios from 'react-native-axios'
 import { ScrollView } from 'react-native-gesture-handler'
 
 import BigLogo from '../../compnents/BigLogo'
-import { Token } from '../../scripts/axios'
 import { picture1 } from '../../scripts/pictures'
 
 const { width, height } = Dimensions.get('window')
@@ -29,10 +28,8 @@ const LoginScreen = ({ navigation }) => {
             password
         })
             .then((response) => {
-                AsyncStorage.setItem('@storage_Key', response)
+                AsyncStorage.setItem('@storage_Key', response.data)
                 navigation.replace('BottomTab')
-                Token = response
-                console.log(response)
             })
             .catch((error) => {
                 console.log(error)

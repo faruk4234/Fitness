@@ -12,6 +12,7 @@ const { width, height } = Dimensions.get('window')
 
 const Boxes = ({ item }) => {
     const boxButton = () => {
+        console.log(item.name)
     }
 
     return (
@@ -21,7 +22,7 @@ const Boxes = ({ item }) => {
                 style={styles.container}
                 onPress={boxButton}>
                 <Text style={styles.textContainer}>
-                    {item.title}
+                    {item.name}
                 </Text>
             </TouchableOpacity>
         </View>

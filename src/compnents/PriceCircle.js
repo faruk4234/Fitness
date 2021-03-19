@@ -10,7 +10,7 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
-const PriceCirlcle = () => {
+const PriceCirlcle = ({ price }) => {
     const PrirceButton = () => {
         console.log('priceButton')
     }
@@ -28,7 +28,7 @@ const PriceCirlcle = () => {
                 </Text>
 
                 <Text style={styles.priceContainer}>
-                    FİYAT
+                    {price}
                 </Text>
 
             </TouchableOpacity>
