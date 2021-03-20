@@ -2,7 +2,6 @@ import React from 'react'
 
 import { StyleSheet, Text, View } from 'react-native'
 import axios from 'react-native-axios'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
 import { getToken } from '../../scripts/axios'
@@ -42,10 +41,19 @@ const Maps = () => {
                 initialRegion={coordDolmabahce}>
                 <Marker coordinate={coordDolmabahce} />
 
+                {data
+                    ? (data.map(({ latitude, longitude }) => (
+                        <MapView.Marker
+                            onPress={() => alert('test')}
+                            pinColor='#10B864'
+                            coordinate={{
+                                latitude: parseInt(latitude),
+                                longitude: parseInt(longitude)
+                            }} />
+                    ))
+                    ) : null}
+
             </MapView>
-            <TouchableOpacity onPress={console.log(data)}>
-                <Text>YARRRAAAA</Text>
-            </TouchableOpacity>
         </View>
     )
 }
