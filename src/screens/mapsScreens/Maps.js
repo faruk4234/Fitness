@@ -42,12 +42,13 @@ const Maps = ({ navigation }) => {
                 <Marker coordinate={coordDolmabahce} />
 
                 {data
-                    ? (data.map(({ latitude, longitude }) => (
+                    ? (data.map((item) => (
                         <MapView.Marker
+                            onPress={() => alert(item.lounge_id)}
                             pinColor='#10B864'
                             coordinate={{
-                                latitude: parseInt(latitude),
-                                longitude: parseInt(longitude)
+                                latitude: parseInt(item.latitude),
+                                longitude: parseInt(item.longitude)
                             }} />
                     ))
                     ) : null}
