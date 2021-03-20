@@ -6,16 +6,13 @@ import {
 import axios from 'react-native-axios'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
-import Boxes from '../../compnents/Boxes'
 import Foto from '../../compnents/Foto'
-import SearcBar from '../../compnents/SearchBar'
+import TeacherComponent from '../../compnents/TeacherComponent'
 import { getToken } from '../../scripts/axios'
 
-const MainPage = ({ navigation }) => {
-    const [searchQuery, setSearchQuery] = React.useState('')
-
+const MainPage = ({ navigation, route }) => {
     const getData = async () => (
-        axios.get('https://traidors.com/api/branch/read', {
+        axios.get('https://traidors.com/api/teacher/read', {
             headers: {
                 Authorization: `Bearer ${await getToken()}`
             }
@@ -29,7 +26,8 @@ const MainPage = ({ navigation }) => {
 
     React.useEffect(() => {
         getData().then((value) => {
-            setData(value)
+            setData(value.filter((value) => { value.branch_id !== route.params.index }))
+            console.log(route.params.index)
         })
     }, [])
 
@@ -41,8 +39,9 @@ const MainPage = ({ navigation }) => {
                 <Foto />
             </View>
 
-            <View style={styles.searchContainer}>
-                <SearcBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <View style={styles.textViewContainer}>
+                <Text style={styles.textcontainer2}>BU BRANŞI VEREN TÜM </Text>
+                <Text style={styles.textcontainer2}> EĞİTMENLER</Text>
             </View>
 
             <View style={styles.childContainer2}>
@@ -50,11 +49,10 @@ const MainPage = ({ navigation }) => {
                     <View>
                         <SafeAreaView style={styles.container}>
                             <FlatList
+                                numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
-                                numColumns={2}
                                 data={data}
-                                renderItem={(item) => <Boxes item={item} navigation={navigation} />}
-                                navigation={navigation}
+                                renderItem={(item) => <TeacherComponent navigation={navigation} item={item} />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>
@@ -82,18 +80,26 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: 'white'
     },
+    textcontainer2: {
+        fontSize: 25,
+        color: 'white'
+
+    },
     childContainer2: {
         flex: 4,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    searchContainer: {
-        marginHorizontal: '6%'
-    },
     flatContainer: {
         paddingVertical: 20
     },
     scroolContainer: {
+    },
+    textViewContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'stretch'
     }
 })
 

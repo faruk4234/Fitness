@@ -1,22 +1,23 @@
 import React from 'react'
 
 import {
-    View, TouchableOpacity, StyleSheet, Dimensions
+    View, TouchableOpacity, StyleSheet, Dimensions, Text
 } from 'react-native'
 import { Avatar } from 'react-native-paper'
 
 const { width } = Dimensions.get('window')
 
 const NewListCircle = ({ navigation, item }) => {
-    console.log(item)
     const salon = () => {
-        //  navigation.navigate('teFotos', item)
+        console.log(item)
+        navigation.navigate('teInfo', item)
     }
 
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => salon()}>
                 <Avatar.Image size={100} source={{ uri: item.image }} />
+                <Text>{item.about}</Text>
             </TouchableOpacity>
         </View>
     )

@@ -10,9 +10,9 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
-const Boxes = ({ item }) => {
+const Boxes = ({ item, navigation }) => {
     const boxButton = () => {
-        console.log(item.name)
+        navigation.navigate('Branc', item)
     }
 
     return (
@@ -22,7 +22,7 @@ const Boxes = ({ item }) => {
                 style={styles.container}
                 onPress={boxButton}>
                 <Text style={styles.textContainer}>
-                    {item.name}
+                    {item.item.name}
                 </Text>
             </TouchableOpacity>
         </View>

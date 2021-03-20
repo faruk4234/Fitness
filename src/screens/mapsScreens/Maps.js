@@ -6,7 +6,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 
 import { getToken } from '../../scripts/axios'
 
-const Maps = () => {
+const Maps = ({ navigation }) => {
     const coordDolmabahce = {
         latitude: 41.0391683,
         longitude: 28.9982707,
@@ -44,7 +44,6 @@ const Maps = () => {
                 {data
                     ? (data.map(({ latitude, longitude }) => (
                         <MapView.Marker
-                            onPress={() => alert('test')}
                             pinColor='#10B864'
                             coordinate={{
                                 latitude: parseInt(latitude),

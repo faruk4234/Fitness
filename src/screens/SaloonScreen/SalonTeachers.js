@@ -25,12 +25,9 @@ const MainPage = ({ navigation, route }) => (
             <ScrollView style={styles.scroolContainer}>
                 <View>
                     <SafeAreaView style={styles.container}>
-                        <FlatList
-                            numColumns={3}
-                            contentContainerStyle={styles.flatContainer}
-                            data={route.params.item}
-                            renderItem={(item) => <SalonTeacherFoto navigation={navigation} item={item} />}
-                            keyExtractor={(item) => item.id} />
+
+                        <SalonTeacherFoto navigation={navigation} item={route.params} />
+
                     </SafeAreaView>
                 </View>
                 <View />

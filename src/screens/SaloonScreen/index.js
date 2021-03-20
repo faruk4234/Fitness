@@ -9,6 +9,7 @@ import Kapacity from './Kapacity'
 import Teachers from './SalonTeachers'
 import SaloonScreen from './SaloonScreen'
 import TeacherFotoScreen from './TeacherFoto'
+import TeacherInfo from './TeacherInfo'
 
 const Stack = createStackNavigator()
 
@@ -43,6 +44,11 @@ const index = () => (
             <Stack.Screen
                 name='teFotos'
                 component={TeacherFotoScreen}
+                options={{ headerShown: false }} />
+
+            <Stack.Screen
+                name='teInfo'
+                component={TeacherInfo}
                 options={{ headerShown: false }} />
 
         </Stack.Navigator>

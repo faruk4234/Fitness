@@ -8,7 +8,7 @@ import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import SalonTeacherFoto from '../../compnents/SalonTeachersFoto'
 
-const MainPage = ({ navigation, item }) => (
+const MainPage = ({ navigation, route }) => (
     <View style={styles.container}>
         <BackgroundColor />
         <View style={styles.childContainer}>
@@ -28,7 +28,7 @@ const MainPage = ({ navigation, item }) => (
                         <FlatList
                             numColumns={3}
                             contentContainerStyle={styles.flatContainer}
-                            data={item}
+                            data={route.params.item}
                             renderItem={(item) => <SalonTeacherFoto navigation={navigation} item={item} />}
                             keyExtractor={(item) => item.id} />
                     </SafeAreaView>
