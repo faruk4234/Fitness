@@ -24,6 +24,8 @@ const LogOrReg = ({ navigation }) => {
             console.log(value, 'h')
             if (value) {
                 navigation.replace('BottomTab')
+            } else {
+                navigation.replace('LoginStack')
             }
         })
     }, [])

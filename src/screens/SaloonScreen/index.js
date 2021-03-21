@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import AboutScreen from './AboutSaloon'
 import ActivityScreen from './ActivityScreen'
+import BuyingScreen from './BuyingScreen'
 import Kapacity from './Kapacity'
 import Teachers from './SalonTeachers'
 import SaloonScreen from './SaloonScreen'
@@ -49,6 +50,11 @@ const index = () => (
             <Stack.Screen
                 name='teInfo'
                 component={TeacherInfo}
+                options={{ headerShown: false }} />
+
+            <Stack.Screen
+                name='Buy'
+                component={BuyingScreen}
                 options={{ headerShown: false }} />
 
         </Stack.Navigator>

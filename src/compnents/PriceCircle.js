@@ -10,9 +10,9 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
-const PriceCirlcle = ({ price }) => {
+const PriceCirlcle = ({ price, navigation }) => {
     const PrirceButton = () => {
-        console.log('priceButton')
+        navigation.navigate('Buy')
     }
 
     return (

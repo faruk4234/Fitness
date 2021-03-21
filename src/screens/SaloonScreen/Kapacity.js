@@ -8,7 +8,7 @@ import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import PriceCircle from '../../compnents/PriceCircle'
 
-const Kapacity = ({ route }) => (
+const Kapacity = ({ route, navigation }) => (
     <View style={styles.container}>
         <BackgroundColor />
         <View style={styles.childContainer}>
@@ -30,9 +30,9 @@ const Kapacity = ({ route }) => (
             </View>
 
             <View style={styles.childContainer3}>
-                <PriceCircle price={route.params.price} />
-                <PriceCircle price={route.params.price} />
-                <PriceCircle price={route.params.price} />
+                <PriceCircle price={route.params.price} navigation={navigation} />
+                <PriceCircle price={route.params.price} navigation={navigation} />
+                <PriceCircle price={route.params.price} navigation={navigation} />
             </View>
 
             <View style={styles.groundChildContainer}>
