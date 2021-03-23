@@ -85,11 +85,17 @@ const MainPage = ({ route, navigation }) => {
                     </Text>
                     <View />
 
-                    <TouchableOpacity
-                        onPress={buying}
-                        style={styles.opacityContainer}>
-                        <Text> SATIN AL</Text>
-                    </TouchableOpacity>
+                    {
+                        (route.params.item.type === 'teacher')
+                            ? (
+                                <TouchableOpacity
+                                    onPress={buying}
+                                    style={styles.opacityContainer}>
+                                    <Text> SATIN AL</Text>
+                                </TouchableOpacity>
+                            ) : null
+                    }
+
                 </ScrollView>
             </View>
 

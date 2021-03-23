@@ -3,49 +3,33 @@ import React from 'react'
 import {
     View, StyleSheet, Text, ScrollView, SafeAreaView, FlatList
 } from 'react-native'
+import axios from 'react-native-axios'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import NewListCircle from '../../compnents/NewListCircle'
+import { getToken } from '../../scripts/axios'
 
-const MainPage = () => {
-    const Data = [
-        {
-            id: '1',
-            title: 'First Item'
-        },
-        {
-            id: '2',
-            title: 'second'
-        },
-        {
-            id: '3',
-            title: 'four'
-        },
-        {
-            id: '4',
-            title: 'five'
-        },
-        {
-            id: '5',
-            title: 'six'
-        },
-        {
-            id: '6',
-            title: 'third'
-        },
-        {
-            id: '7',
-            title: 'seven'
-        },
-        {
-            id: '8',
-            title: 'egght'
-        }, {
-            id: '9',
-            title: 'nine'
-        }
-    ]
+const MainPage = ({ navigation }) => {
+    const getActivity = async () => (
+        axios.get('https://traidors.com/api/activity/read', {
+            headers: {
+                Authorization: `Bearer ${await getToken()}`
+            }
+        })
+            .then((response) => (response.data))
+            .catch((e) => {
+                console.log('e', e)
+            })
+    )
+
+    const [data, setData] = React.useState(null)
+
+    React.useEffect(() => {
+        getActivity().then((value) => {
+            setData(value)
+        })
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -67,8 +51,8 @@ const MainPage = () => {
                             <FlatList
                                 numColumns={3}
                                 contentContainerStyle={styles.flatContainer}
-                                data={Data}
-                                renderItem={() => <NewListCircle />}
+                                data={data}
+                                renderItem={(item) => <NewListCircle item={item} navigation={navigation} />}
                                 keyExtractor={(item) => item.id} />
                         </SafeAreaView>
                     </View>

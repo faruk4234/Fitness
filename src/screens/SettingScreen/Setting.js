@@ -6,11 +6,12 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import BackgroundImage from '../../compnents/BackgroundImage'
 import ChangePasswordBox from '../../compnents/PasswordChangeBox'
+import TypeBox from '../../compnents/TypeBox'
 
 const Setting = ({ navigation }) => {
     const out = () => {
         AsyncStorage.removeItem('@storage_Key')
-        navigation.replace('LoginScreen', { screen: 'Login' })
+        navigation.replace('LoginScreen')
     }
 
     return (
@@ -21,9 +22,7 @@ const Setting = ({ navigation }) => {
                 style={styles.childContainer}>
                 <Text style={styles.textContainer}>Çıkış</Text>
             </TouchableOpacity>
-            <View style={styles.changePassword}>
-                <ChangePasswordBox navigation={navigation} />
-            </View>
+            <View style={styles.childContainer2} />
         </View>
     )
 }
@@ -46,7 +45,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 25
     },
-    changePassword: {
+    childContainer2: {
+        flexDirection: 'row',
         flex: 1,
         top: '10%'
     }

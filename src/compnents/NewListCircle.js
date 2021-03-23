@@ -5,21 +5,19 @@ import {
 } from 'react-native'
 import { Avatar } from 'react-native-paper'
 
-import { logo } from '../scripts/pictures'
-
 const { width, height } = Dimensions.get('window')
 
-const NewListCircle = ({ navigation }) => {
+const NewListCircle = ({ navigation, item }) => {
     const [click, setClick] = React.useState(false)
 
     const video = () => {
-        navigation.navigate('teFotos')
+        navigation.navigate('teInfo', item)
     }
 
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => setClick(!click)}>
-                <Avatar.Image size={100} source={{ uri: logo }} />
+                <Avatar.Image size={100} source={{ uri: item.item.image }} />
             </TouchableOpacity>
             { click ? (
                 <View style={styles.childContainer}>
@@ -29,7 +27,7 @@ const NewListCircle = ({ navigation }) => {
                         onPress={video}>
 
                         <Text style={styles.textConteiner1}>
-                            görsel/Video
+                            {item.item.name}
                         </Text>
 
                     </TouchableOpacity>

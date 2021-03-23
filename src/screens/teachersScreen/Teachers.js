@@ -4,6 +4,7 @@ import {
     View, StyleSheet, Text, ScrollView, SafeAreaView, FlatList
 } from 'react-native'
 import axios from 'react-native-axios'
+import { Checkbox } from 'react-native-paper'
 
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
@@ -22,13 +23,31 @@ const MainPage = ({ navigation }) => {
                 console.log('e', e)
             })
     )
+
+    const getStudent = async () => (
+        axios.get('https://traidors.com/api/student/read', {
+            headers: {
+                Authorization: `Bearer ${await getToken()}`
+            }
+        })
+            .then((response) => (response.data))
+            .catch((e) => {
+                console.log('e', e)
+            })
+    )
+
     const [data, setData] = React.useState(null)
 
     React.useEffect(() => {
         getData().then((value) => {
-            setData(value)
+            getStudent().then((student) => {
+                setData([...student, ...value])
+            })
         })
     }, [])
+
+    const [student, setStudent] = React.useState(false)
+    const [teacher, setTeacher] = React.useState(false)
 
     return (
         <View style={styles.container}>
@@ -41,11 +60,31 @@ const MainPage = ({ navigation }) => {
                     {getName}
                 </Text>
                 <Foto />
+
+            </View>
+            <View style={styles.checkBox}>
+
+                <Checkbox
+                    status={student ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setStudent(!student)
+                    }} />
+
+                <Text style={styles.checkBoxText}>Ögrenciler</Text>
+            </View>
+
+            <View style={styles.checkBox}>
+                <Checkbox
+                    status={teacher ? 'checked' : 'unchecked'}
+                    onPress={() => {
+                        setTeacher(!teacher)
+                    }} />
+                <Text style={styles.checkBoxText}>Ögretmenler</Text>
             </View>
 
             <View style={styles.textViewContainer}>
                 <Text style={styles.textcontainer2}>TÜM </Text>
-                <Text style={styles.textcontainer2}>Eğitmenler</Text>
+                <Text style={styles.textcontainer2}>Eğitmenler ve Ögrenciler</Text>
             </View>
 
             <View style={styles.childContainer2}>
@@ -104,6 +143,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'stretch'
+    },
+    checkBoxText: {
+        color: 'white',
+        fontSize: 20,
+        top: 3
+    },
+    checkBox: {
+        flexDirection: 'row'
     }
 })
 
