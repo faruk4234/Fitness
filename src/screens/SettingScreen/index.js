@@ -7,13 +7,13 @@ import Settings from './Setting'
 
 const Stack = createStackNavigator()
 
-const index = () => (
+const index = ({ route }) => (
     <NavigationContainer independent>
-        <Stack.Navigator initialRouteName='setting'>
+        <Stack.Navigator initialRouteName='setting' navigation>
 
             <Stack.Screen
                 name='setting'
-                component={Settings}
+                component={() => <Settings navigation={route.navigation} />}
                 options={{ headerShown: false }} />
 
         </Stack.Navigator>

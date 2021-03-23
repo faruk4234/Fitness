@@ -5,11 +5,12 @@ import { Text, View, StyleSheet } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 import BackgroundImage from '../../compnents/BackgroundImage'
+import ChangePasswordBox from '../../compnents/PasswordChangeBox'
 
-const Setting = ({ route }) => {
+const Setting = ({ navigation }) => {
     const out = () => {
         AsyncStorage.removeItem('@storage_Key')
-        route.navigation.navigate('LoginScreen')
+        navigation.replace('LoginScreen', { screen: 'Login' })
     }
 
     return (
@@ -20,6 +21,9 @@ const Setting = ({ route }) => {
                 style={styles.childContainer}>
                 <Text style={styles.textContainer}>Çıkış</Text>
             </TouchableOpacity>
+            <View style={styles.changePassword}>
+                <ChangePasswordBox navigation={navigation} />
+            </View>
         </View>
     )
 }
@@ -41,6 +45,10 @@ const styles = StyleSheet.create({
     textContainer: {
         color: 'white',
         fontSize: 25
+    },
+    changePassword: {
+        flex: 1,
+        top: '10%'
     }
 })
 

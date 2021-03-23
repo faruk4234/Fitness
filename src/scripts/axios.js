@@ -22,3 +22,14 @@ instance.interceptors.request.use(async (config) => {
     return config
 })
 */
+export const getName = async () => (
+    axios.get('https://traidors.com/api/user', {
+        headers: {
+            Authorization: `Bearer ${await getToken()}`
+        }
+    })
+        .then((response) => response.data)
+        .catch((e) => {
+            console.log('e', e)
+        })
+)

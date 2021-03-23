@@ -5,25 +5,34 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Branches from './Branches'
 import MainPage from './MainPage'
+import teFotos from './TeacherPrifle'
 
 const Stack = createStackNavigator()
 
-const index = () => (
-    <NavigationContainer independent>
-        <Stack.Navigator initialRouteName='MainPage'>
+const index = ({ route }) => {
+    console.log('here:', route.navigation)
 
-            <Stack.Screen
-                name='MainPage'
-                component={MainPage}
-                options={{ headerShown: false }} />
+    return (
+        <NavigationContainer independent>
+            <Stack.Navigator initialRouteName='MainPage'>
 
-            <Stack.Screen
-                name='Branc'
-                component={Branches}
-                options={{ headerShown: false }} />
+                <Stack.Screen
+                    name='MainPage'
+                    component={MainPage}
+                    options={{ headerShown: false }} />
 
-        </Stack.Navigator>
-    </NavigationContainer>
-)
+                <Stack.Screen
+                    name='Branc'
+                    component={Branches}
+                    options={{ headerShown: false }} />
 
+                <Stack.Screen
+                    name='teFotos'
+                    component={teFotos}
+                    options={{ headerShown: false }} />
+
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
 export default index

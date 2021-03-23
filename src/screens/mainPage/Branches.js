@@ -26,7 +26,7 @@ const MainPage = ({ navigation, route }) => {
 
     React.useEffect(() => {
         getData().then((value) => {
-            setData(value.filter((value) => { value.branch_id !== route.params.index }))
+            setData(value.filter((value) => value.branch_id === route.params.index))
             console.log(route.params.index)
         })
     }, [])

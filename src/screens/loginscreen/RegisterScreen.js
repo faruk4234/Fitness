@@ -4,21 +4,31 @@ import {
     Text, View, StyleSheet, TextInput, TouchableOpacity, ScrollView,
     Dimensions
 } from 'react-native'
+import axios from 'react-native-axios'
 
 import BackgroundImage from '../../compnents/BackgroundImage'
-import SalonLogo from '../../compnents/SalonLogo'
 import SmallLogo from '../../compnents/SmallLogo'
 
 const { width, height } = Dimensions.get('window')
 
-const RegisterScreen = () => {
-    const [salonName, setSalonName] = React.useState('')
-    const [adress, setAdress] = React.useState('')
-    const [phone, setPhone] = React.useState(Number)
+const RegisterScreen = ({ navigation }) => {
+    const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const [iban, setIban] = React.useState(Number)
-    const [taxNumber, setTaxNumber] = React.useState('')
+
+    const Register = () => {
+        axios.post('https://traidors.com/api/register', {
+            name,
+            email,
+            password
+        })
+            .then(() => {
+                navigation.replace('Login')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 
     return (
         <View style={styles.kidContainer}>
@@ -29,30 +39,13 @@ const RegisterScreen = () => {
                     <SmallLogo />
                 </View>
 
-                <View style={styles.childContainer2}>
-                    <SalonLogo />
-                </View>
-
                 <View style={styles.childContainer3}>
 
                     <TextInput
                         style={styles.input1}
-                        onChangeText={setSalonName}
-                        value={salonName}
-                        placeholder='Salon Adı' />
-
-                    <TextInput
-                        style={styles.input1}
-                        onChangeText={setAdress}
-                        value={adress}
-                        placeholder='Adress' />
-
-                    <TextInput
-                        style={styles.input1}
-                        onChangeText={setPhone}
-                        value={phone}
-                        keyboardType='phone-pad'
-                        placeholder='TEL NO' />
+                        onChangeText={setName}
+                        value={name}
+                        placeholder='Name' />
 
                     <TextInput
                         style={styles.input1}
@@ -66,19 +59,8 @@ const RegisterScreen = () => {
                         value={password}
                         placeholder='ŞİFRE' />
 
-                    <TextInput
-                        style={styles.input1}
-                        onChangeText={setIban}
-                        value={iban}
-                        placeholder='İBAN' />
-
-                    <TextInput
-                        style={styles.input1}
-                        onChangeText={setTaxNumber}
-                        value={taxNumber}
-                        placeholder='Vergi no' />
-
                     <TouchableOpacity
+                        onPress={Register}
                         style={styles.opacityContainer}>
 
                         <Text
@@ -110,14 +92,6 @@ const styles = StyleSheet.create({
         height,
         position: 'absolute'
 
-    },
-    childContainer2: {
-        left: width * 0.38,
-        top: height * 0.22,
-        flex: 1,
-        width,
-        height,
-        position: 'absolute'
     },
     childContainer3: {
         flex: 1,

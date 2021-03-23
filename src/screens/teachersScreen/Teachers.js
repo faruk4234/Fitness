@@ -8,7 +8,7 @@ import axios from 'react-native-axios'
 import BackgroundColor from '../../compnents/BackgroundImage'
 import Foto from '../../compnents/Foto'
 import TeacherComponent from '../../compnents/TeacherComponent'
-import { getToken } from '../../scripts/axios'
+import { getToken, getName } from '../../scripts/axios'
 
 const MainPage = ({ navigation }) => {
     const getData = async () => (
@@ -34,7 +34,12 @@ const MainPage = ({ navigation }) => {
         <View style={styles.container}>
             <BackgroundColor />
             <View style={styles.childContainer}>
-                <Text style={styles.textContainer}> Merhaba xxx</Text>
+                <Text style={styles.textContainer}>
+                    {' '}
+                    Merhaba
+                    {' '}
+                    {getName}
+                </Text>
                 <Foto />
             </View>
 

@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     Dimensions
 } from 'react-native'
+import axios from 'react-native-axios'
 import { ScrollView } from 'react-native-gesture-handler'
 
 import BigLogo from '../../compnents/BigLogo'
@@ -20,8 +21,29 @@ const LoginScreen = () => {
     const [passwordCheck, setPasswordCheck] = React.useState('')
     const [password, setPassword] = React.useState(null)
 
-    const login = () => {
-        console.log('login')
+    const getData = async () => (
+        axios.get('https://traidors.com/api/teacher/read', {
+            headers: {
+                Authorization: `Bearer ${await getToken()}`
+            }
+        })
+            .then((response) => (response.data))
+            .catch((e) => {
+                console.log('e', e)
+            })
+    )
+
+    const ChangePassword = () => {
+        axios.post('https://traidors.com/api/register', {
+
+            password
+        })
+            .then(() => {
+                navigation.replace('Login')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -56,7 +78,7 @@ const LoginScreen = () => {
                     style={styles.loginContainer}>
 
                     <TouchableOpacity
-                        onPress={login}
+                        onPress={getData}
                         style={styles.buttonContainer}>
                         <Text style={styles.loginButton}>
                             GİRİŞ YAP
